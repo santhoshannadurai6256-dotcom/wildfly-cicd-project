@@ -6,14 +6,6 @@ pipeline {
     IMAGE_NAME = "yourdockerhubusername/wildfly-app:${BUILD_NUMBER}"
   }
 
-  stages {
-
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/santhoshannadurai6256-dotcom/wildfly-cicd-project.git'
-      }
-    }
-
     stage('Build WAR') {
       steps {
         sh 'mvn clean package'

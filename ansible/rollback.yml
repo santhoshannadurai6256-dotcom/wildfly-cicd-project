@@ -1,1 +1,13 @@
 
+- hosts: wildfly
+  become: yes
+  tasks:
+
+  - name: Stop failed container
+    shell: docker stop wildfly || true
+
+  - name: Remove failed container
+    shell: docker rm wildfly || true
+
+  - name: Run previous image
+    shell: docker run -d --name wildfly -p 8080:8080 yourdockerhubusername/wildfly-app:{{ lookup('env','BUILD_NUMBER') | int -1 }}

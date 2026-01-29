@@ -10,7 +10,7 @@ pipeline {
 
     stage('Checkout') {
       steps {
-        git 'https://github.com/yourusername/wildfly-cicd-project.git'
+        git 'https://github.com/santhoshannadurai6256-dotcom/wildfly-cicd-project.git'
       }
     }
 

@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "yourdockerhubusername/wildfly-app:${BUILD_NUMBER}"
+        IMAGE_NAME = "santhosh255/wildfly-app:${BUILD_NUMBER}"
     }
 
     stages {

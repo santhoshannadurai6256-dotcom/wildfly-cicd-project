@@ -1,1 +1,16 @@
 
+- hosts: wildfly
+  become: yes
+  tasks:
+
+  - name: Stop old container
+    shell: docker stop wildfly || true
+
+  - name: Remove old container
+    shell: docker rm wildfly || true
+
+  - name: Pull new image
+    shell: docker pull yourdockerhubusername/wildfly-app:{{ lookup('env','BUILD_NUMBER') }}
+
+  - name: Run new container
+    shell: docker run -d --name wildfly -p 8080:8080 yourdockerhubusername/wildfly-app:{{ lookup('env','BUILD_NUMBER') }}
